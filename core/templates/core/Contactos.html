@@ -1,0 +1,51 @@
+{%load static%}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/misestilos.css' %}">
+    
+</head>
+<body>
+    <h1>Contactos</h1>
+    <ul>
+        <hr>
+        <li><a href="{% url 'index' %}">Index</a></li>
+        <li><a href="{% url 'Obras' %}">Obras</a></li>
+        <li><a href="{% url 'nuevaObras' %}">nuevasObras</a></li>
+        <li><a href="{% url 'contactos' %}">Contactos</a></li>
+        <hr>
+    </ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <form action="" method="POST" id="formularioCont">
+                {% csrf_token %}
+                {{ form|crispy}}
+                
+                <button type="submit">Guardar</button>
+                </form>
+            
+                <span style="color:greenyellow">
+                    {{mensaje}}
+                </span>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+<script src="{% static 'core/js/jquery-3.6.0.js' %}"></script>
+<script src="{% static 'core/js/popper.js' %}"></script>
+<script src="{% static 'core/js/bootstrap.js' %}"></script>
+
+</body>
+</html>
